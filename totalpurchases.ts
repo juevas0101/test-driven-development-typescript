@@ -8,14 +8,14 @@ export class TotalPurchases {
     this.shopping = shopping;
     this.total = this.calculateTotal(shopping);
   }
+
+  private calculateTotal(shopping: {[key: string]: number}): number {
+    const purchases = Object.values(shopping);
+    return purchases.reduce((acc, value) => acc + value, 0)
+  }
   
   authorizePurchase(): string {
     return this.wallet >= this.total ? "Successful purchase!" : "Unauthorized purchase.";
-  }
-
-  private calculateTotal(shopping: {[key: string]: number}): number {
-   const purchases = Object.values(shopping);
-   return purchases.reduce((acc, value) => acc + value, 0)
   }
 
   calculateChange(): string {
