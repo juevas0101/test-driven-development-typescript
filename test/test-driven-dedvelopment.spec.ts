@@ -3,28 +3,17 @@ import { Move, Outcome, createPaperRockScissors } from "../testing-driven-develo
 describe('rock-paper-scicross', () => {
     describe('play', () => {
         describe('paper beats rock', () => {
-            it('given player move paper and opponent move rock should return player wins', () => {
-                // arrange
-                const playerMove = Move.Paper;
-                const opponentMove = Move.Rock;
-                const expected = Outcome.PlayerWins;
-                const sut = createPaperRockScissors();
-                // act
-                const actual = sut.play(playerMove, opponentMove)
-                // assert
-                expect(actual).toBe(expected);
-            })
-    
-            it('given player move rock and opponent move paper should return player loses', () => {
-                // arrange
-                const playerMove = Move.Rock;
-                const opponentMove = Move.Paper;
-                const expected = Outcome.PlayerLoses;
-                const sut = createPaperRockScissors();
-                // act
-                const actual = sut.play(playerMove, opponentMove)
-                // assert
-                expect(actual).toBe(expected);
+
+            it.each([
+                {playerMove: Move.Paper, opponentMove: Move.Rock,  expected: Outcome.PlayerWins},
+                {playerMove: Move.Rock, opponentMove: Move.Paper,  expected: Outcome.PlayerLoses},
+            ])('Player Move: $playerMove, OpponentMove: $opponentMove, Expexted Outcome: $expected ', ({playerMove, opponentMove, expected}) => {
+                  // arrange
+                  const sut = createPaperRockScissors();
+                  // act
+                  const actual = sut.play(playerMove, opponentMove)
+                  // assert
+                  expect(actual).toBe(expected);
             })
         })
     
