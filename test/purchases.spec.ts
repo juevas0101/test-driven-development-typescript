@@ -1,4 +1,4 @@
-import { TotalPurchases } from "../totalpurchases";
+import { TotalPurchases } from "../application/totalpurchases";
 
 describe('TotalPurchases', () => {
   it('should return "successful purchase"', () => {

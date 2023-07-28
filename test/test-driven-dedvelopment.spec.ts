@@ -1,4 +1,4 @@
-import { Move, Outcome, createPaperRockScissors } from "../testing-driven-development";
+import { Move, Outcome, createPaperRockScissors } from "../application/testing-driven-development";
 
 describe('rock-paper-scicross', () => {
     describe('play', () => {

@@ -1,4 +1,4 @@
-import { Numbers } from "../calculator";
+import { Numbers } from "../application/calculator";
 
 describe('class Numbers', () => {
     it.each([
